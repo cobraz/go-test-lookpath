@@ -2,6 +2,7 @@ package main
 
 import (
 	"os"
+	"os/exec"
 	"path/filepath"
 	"fmt"
 	"io/ioutil"
@@ -39,4 +40,11 @@ func main() {
 		// 	return path, nil
 		// }
 	}
+
+	nodePath, err := exec.LookPath("node")
+	if err != nil {
+		panic(err);
+	}
+
+	fmt.Printf("NODE PATH: %s\n", nodePath)
 }
