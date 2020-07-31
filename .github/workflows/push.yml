@@ -1,0 +1,17 @@
+name: Test LookPath
+on:
+  push:
+    branches:
+      - master
+jobs:
+  up:
+    name: Update
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - run: which node
+      - run: node --version
+      - run: echo $PATH
+      - run: go run ./main.go
